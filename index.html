@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Portofolio | Wardatul Jannah, S.Mat.</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-primary: #f7f9fb;
+      --bg-secondary: #f0f7ff;
+      --bg-lavender: #f5f3ff;
+      --bg-peach: #fff6ee;
+      --primary: #7fa5e3;
+      --primary-dark: #5b8dd9;
+      --text-primary: #2d3748;
+      --text-secondary: #4a5568;
+      --text-light: #718096;
+      --white: #ffffff;
+      --shadow: 0 10px 40px -20px rgba(95, 138, 219, 0.25);
+      --shadow-hover: 0 15px 50px -15px rgba(95, 138, 219, 0.35);
+      --border: rgba(127, 165, 227, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+        sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px) saturate(180%);
+      -webkit-backdrop-filter: blur(10px) saturate(180%);
+      box-shadow: 0 1px 30px -20px rgba(95, 138, 219, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0.8rem 2rem;
+    }
+
+    .logo {
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      font-weight: 600;
+      color: var(--primary-dark);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 0 4px rgba(127, 165, 227, 0.12);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      font-weight: 400;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary-dark);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-badge {
+      background: linear-gradient(135deg, #7fa5e3 0%, #9fb9ec 100%);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      box-shadow: 0 8px 30px -15px #7fa5e3;
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--primary-dark);
+      background: none;
+      border: none;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 6rem 2rem 4rem;
+      background: radial-gradient(circle at top,
+          var(--bg-secondary) 0%,
+          var(--bg-primary) 70%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      width: 100%;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      align-items: center;
+      gap: clamp(2rem, 6vw, 4rem);
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .hero-content h1 span {
+      background: linear-gradient(135deg, #7fa5e3 0%, #b9d0f5 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-content p {
+      color: var(--text-secondary);
+      font-size: clamp(1rem, 2.2vw, 1.125rem);
+      margin-bottom: 0.5rem;
+      font-weight: 400;
+    }
+
+    .hero-sub {
+      color: var(--text-light);
+      font-size: clamp(0.98rem, 2vw, 1rem);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      max-width: 580px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.8rem;
+      background: linear-gradient(135deg, #7fa5e3 0%, #9fb9ec 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 100px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 12px 40px -20px #7fa5e3;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .btn-primary i {
+      transition: transform 0.3s ease;
+    }
+
+    .btn-primary:hover i {
+      transform: translateY(2px);
+    }
+
+    /* Profile Image */
+    .profile-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-card {
+      position: relative;
+      width: min(380px, 80vw);
+      aspect-ratio: 1;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: var(--white);
+      padding: 0.5rem;
+      transition: all 0.4s ease;
+      transform: rotate(-1.5deg);
+    }
+
+    .profile-card:hover {
+      transform: rotate(0deg) scale(1.02);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 24px;
+      background: linear-gradient(145deg, #f0f7ff 0%, #f5f3ff 100%);
+    }
+
+    .math-decor {
+      position: absolute;
+      font-weight: 600;
+      color: rgba(95, 138, 219, 0.12);
+      user-select: none;
+      pointer-events: none;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      z-index: 0;
+    }
+
+    .decor-1 {
+      top: -10%;
+      right: -5%;
+    }
+
+    .decor-2 {
+      bottom: -10%;
+      left: -5%;
+    }
+
+    .decor-3 {
+      top: 20%;
+      left: -15%;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    .floating-badge {
+      position: absolute;
+      bottom: 1.2rem;
+      left: 1.2rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 0.6rem 1.2rem;
+      border-radius: 100px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--primary-dark);
+      box-shadow: 0 10px 40px -20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Sections */
+    section {
+      padding: clamp(4rem, 8vw, 6rem) 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: clamp(2.5rem, 6vw, 3.5rem);
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      margin-bottom: 0.75rem;
+      background: linear-gradient(135deg, #7fa5e3 0%, #b9d0f5 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-title p {
+      color: var(--text-light);
+      max-width: 620px;
+      margin: auto;
+      padding: 0 1rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: clamp(1.25rem, 3vw, 1.75rem);
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      align-items: center;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: clamp(1.75rem, 4vw, 2.25rem);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .about-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--bg-secondary);
+      border-radius: 16px;
+      margin-bottom: 0.85rem;
+      transition: all 0.3s ease;
+    }
+
+    .info-item:hover {
+      background: #eaf3ff;
+      transform: translateX(4px);
+    }
+
+    .info-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #7fa5e3 0%, #9fb9ec 100%);
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .info-text h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .info-text p {
+      font-size: 0.98rem;
+      color: var(--text-secondary);
+    }
+
+    .focus-card {
+      background: var(--bg-lavender);
+      padding: 1.25rem 1.5rem;
+      border-radius: 16px;
+      margin-top: 1.5rem;
+    }
+
+    .focus-card h4 {
+      color: var(--primary-dark);
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .focus-card p {
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+      line-height: 1.8;
+    }
+
+    /* Photo Collage */
+    .gallery {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 0.85rem;
+      max-width: 900px;
+      margin: auto;
+      aspect-ratio: 4/3;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.01);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-right {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .gallery-caption {
+      text-align: center;
+      margin-top: 1.5rem;
+      color: var(--text-light);
+      font-size: 0.98rem;
+    }
+
+    @media (max-width: 768px) {
+      .gallery {
+        grid-template-columns: 1fr;
+        aspect-ratio: auto;
+      }
+
+      .gallery-right {
+        grid-template-columns: repeat(2, 1fr);
+        aspect-ratio: 2/1;
+      }
+    }
+
+    /* Artifact Cards */
+    .artifact-card {
+      background: var(--white);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .artifact-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .artifact-header {
+      padding: clamp(2rem, 4vw, 2.5rem);
+      background: linear-gradient(145deg, #f0f7ff 0%, #f5f3ff 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 240px;
+      position: relative;
+    }
+
+    .icon-circle {
+      width: clamp(90px, 8vw, 110px);
+      height: clamp(90px, 8vw, 110px);
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7fa5e3 0%, #9fb9ec 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: clamp(2.5rem, 5vw, 3rem);
+      box-shadow: 0 15px 50px -30px #7fa5e3;
+    }
+
+    .video-thumbnail {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+    }
+
+    .play-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(45, 55, 72, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .play-btn {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.98);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-dark);
+      font-size: 1.75rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 40px -20px rgba(0, 0, 0, 0.4);
+    }
+
+    .play-overlay:hover .play-btn {
+      transform: scale(1.08);
+    }
+
+    .artifact-content {
+      padding: clamp(1.5rem, 3vw, 1.75rem);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .artifact-content h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .artifact-content p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      background: transparent;
+      color: var(--primary-dark);
+      text-decoration: none;
+      border-radius: 100px;
+      font-weight: 500;
+      border: 2px solid rgba(127, 165, 227, 0.15);
+      transition: all 0.3s ease;
+      width: fit-content;
+    }
+
+    .btn-outline:hover {
+      background: var(--bg-secondary);
+      border-color: rgba(127, 165, 227, 0.3);
+    }
+
+    /* Artifact Analysis */
+    .artifact-analysis {
+      max-width: 1200px;
+      margin: clamp(2.5rem, 6vw, 4rem) auto 0;
+      padding: clamp(1.75rem, 4vw, 2.5rem);
+      background: linear-gradient(145deg, #f0f7ff 0%, #f5f3ff 100%);
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .artifact-analysis-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+      color: var(--primary-dark);
+      font-size: clamp(1.35rem, 3vw, 1.75rem);
+    }
+
+    .artifact-analysis-title i {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #7fa5e3 0%, #9fb9ec 100%);
+      color: white;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .analysis-item {
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 18px;
+      border: 1px solid rgba(127, 165, 227, 0.12);
+    }
+
+    .analysis-item h4 {
+      margin-bottom: 0.65rem;
+      color: var(--primary-dark);
+      font-size: 1.1rem;
+    }
+
+    .analysis-item p,
+    .analysis-item li {
+      color: var(--text-secondary);
+      line-height: 1.85;
+    }
+
+    .analysis-item ol {
+      padding-left: 1.35rem;
+    }
+
+    .analysis-item li {
+      padding-left: 0.35rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .analysis-item li:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      .analysis-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Feature Pills */
+    .pill-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .pill {
+      padding: 0.6rem 1.25rem;
+      background: var(--white);
+      border-radius: 100px;
+      font-size: 0.98rem;
+      color: var(--text-secondary);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .pill strong {
+      color: var(--primary-dark);
+    }
+
+    /* Timeline */
+    .timeline {
+      max-width: 760px;
+      margin: auto;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 24px;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background: linear-gradient(to bottom,
+          rgba(127, 165, 227, 0.15) 0%,
+          rgba(127, 165, 227, 0.4) 100%);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 4.5rem;
+      margin-bottom: clamp(1.75rem, 4vw, 2.25rem);
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 12px;
+      top: 6px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7fa5e3 0%, #9fb9ec 100%);
+      box-shadow: 0 0 0 6px rgba(127, 165, 227, 0.12);
+    }
+
+    .timeline-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: clamp(1.25rem, 3vw, 1.5rem);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .timeline-card h4 {
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-card p {
+      color: var(--text-secondary);
+      line-height: 1.85;
+    }
+
+    /* Philosophy */
+    .philosophy {
+      background: var(--bg-peach);
+      text-align: center;
+    }
+
+    .quote {
+      max-width: 860px;
+      margin: auto;
+      font-size: clamp(1.25rem, 4vw, 1.75rem);
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--text-primary);
+      padding: clamp(2rem, 5vw, 3rem);
+      background: var(--white);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      border-left: 4px solid #f2b56b;
+    }
+
+    .quote span {
+      color: #f0a93b;
+    }
+
+    .philosophy-text {
+      max-width: 680px;
+      margin: clamp(1.5rem, 3vw, 2rem) auto 0;
+      color: var(--text-secondary);
+      line-height: 1.9;
+    }
+
+    /* Footer */
+    footer {
+      background: #2d3748;
+      color: #e2e8f0;
+      padding: clamp(2.5rem, 5vw, 3.5rem) 2rem 2rem;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: clamp(2rem, 4vw, 3rem);
+      align-items: start;
+    }
+
+    .footer-brand h3 {
+      color: white;
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-brand p {
+      color: #cbd5e0;
+      line-height: 1.85;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.85rem 1rem;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      text-decoration: none;
+      color: #e2e8f0;
+      margin-bottom: 0.85rem;
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateX(4px);
+    }
+
+    .contact-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 2.5rem auto 0;
+      padding-top: 1.5rem;
+      text-align: center;
+      font-size: 0.98rem;
+      color: #a0aec0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7fa5e3 0%, #9fb9ec 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 12px 40px -20px #7fa5e3;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-4px);
+    }
+
+    /* Modal Video */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(45, 55, 72, 0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 1rem;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      width: min(90vw, 900px);
+      aspect-ratio: 16/9;
+      background: black;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .modal video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.95);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      z-index: 10;
+    }
+
+    /* Mobile Nav */
+    @media (max-width: 992px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        padding: 1.25rem 0;
+        gap: 1.25rem;
+        transform: translateY(-10px);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 20px 60px -30px rgba(95, 138, 219, 0.5);
+      }
+
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav-badge {
+        display: none;
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <a href="#home" class="logo">
+        <span class="logo-dot"></span>
+        Wardatul Jannah
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About Me</a></li>
+        <li><a href="#practice" class="nav-link">Teaching Practice</a></li>
+        <li><a href="#artifacts" class="nav-link">Artifacts</a></li>
+        <li><a href="#lesson" class="nav-link">Lesson</a></li>
+        <li><a href="#reflection" class="nav-link">Reflection</a></li>
+        <li><a href="#philosophy" class="nav-link">Philosophy</a></li>
+        <li class="nav-badge">PPL Mandiri – Siklus 1</li>
+      </ul>
+      <button class="hamburger" id="hamburger">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-content fade-in">
+        <p>Hello, I'm</p>
+        <h1>Wardatul <span>Jannah</span></h1>
+        <p class="hero-sub">
+          Mathematics Teacher in Progress <br />
+          Mahasiswa PPG Prajabatan Matematika <br />
+          Universitas Kristen Satya Wacana (UKSW) Salatiga
+        </p>
+        <a href="#about" class="btn-primary">
+          Explore My Portfolio
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+      </div>
+      <div class="profile-wrapper fade-in">
+        <div class="math-decor decor-1">x²</div>
+        <div class="math-decor decor-2">π</div>
+        <div class="math-decor decor-3">∑</div>
+        <div class="profile-card">
+          <!-- Ganti dengan foto profil kamu -->
+          <img src="foto-profil.jpg" alt="Foto Profil Wardatul Jannah" class="profile-img"
+            onerror="this.src='https://placehold.co/400x400/F0F7FF/7FA5E3?text=Foto+Profil'" />
+          <div class="floating-badge">PPG Prajabatan Matematika</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title fade-in">
+        <h2>A Little About Me</h2>
+        <p>
+          Perjalanan belajar dan berkembang untuk menjadi guru matematika yang
+          mampu menciptakan pembelajaran bermakna bagi murid
+        </p>
+      </div>
+      <div class="grid grid-2">
+        <div class="fade-in">
+          <!-- Ganti dengan foto profil atau foto formal kamu -->
+          <img src="foto-profil.jpg" alt="Wardatul Jannah" class="about-img"
+            onerror="this.src='https://placehold.co/500x625/F0F7FF/7FA5E3?text=Foto'" />
+        </div>
+        <div class="card fade-in">
+          <p style="color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.9">
+            Saya <strong>Wardatul Jannah, S.Mat.</strong>, mahasiswa PPG
+            Prajabatan Program Studi Pendidikan Matematika, Universitas Kristen
+            Satya Wacana (UKSW) Salatiga. Saat ini saya melaksanakan Praktik
+            Pengalaman Lapangan (PPL) di SMA Negeri 3 Salatiga dengan harapan
+            dapat mengubah cara pandang murid terhadap matematika, dari mata
+            pelajaran yang dianggap sulit dan menakutkan menjadi pengalaman
+            belajar yang bermakna dan menyenangkan.
+          </p>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fa-solid fa-chalkboard-user"></i>
+            </div>
+            <div class="info-text">
+              <h4>Praktik Mengajar</h4>
+              <p>PPL Mandiri – Siklus 1</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fa-solid fa-school"></i>
+            </div>
+            <div class="info-text">
+              <h4>Lokasi PPL</h4>
+              <p>SMA Negeri 3 Salatiga</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <div class="info-text">
+              <h4>Kelas Sasaran</h4>
+              <p>Kelas X-6</p>
+            </div>
+          </div>
+
+          <div class="focus-card">
+            <h4>
+              <i class="fa-solid fa-book-open"></i>
+              Materi Pembelajaran
+            </h4>
+            <p>
+              Sifat-Sifat Bilangan Berpangkat Positif, Pangkat Nol, dan Pangkat
+              Negatif
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaching Practice -->
+  <section id="practice" style="background: var(--bg-secondary)">
+    <div class="container">
+      <div class="section-title fade-in">
+        <h2>From Planning to Classroom</h2>
+        <p>
+          Dokumentasi pelaksanaan Praktik Pengalaman Lapangan (PPL) Mandiri
+          Siklus 1 di SMA Negeri 3 Salatiga
+        </p>
+      </div>
+
+      <div class="gallery fade-in">
+        <div class="gallery-item">
+          <!-- Ganti dengan foto mengajar 1 -->
+          <img src="foto-mengajar-1.jpg" alt="Praktik Mengajar di Kelas X-6"
+            onerror="this.src='https://placehold.co/800x600/F0F7FF/7FA5E3?text=Foto+Mengajar+1'" />
+        </div>
+        <div class="gallery-right">
+          <div class="gallery-item">
+            <!-- Ganti dengan foto mengajar 2 -->
+            <img src="foto-mengajar-2.jpg" alt="Aktivitas Diskusi Kelompok"
+              onerror="this.src='https://placehold.co/400x300/F5F3FF/7FA5E3?text=Foto+Mengajar+2'" />
+          </div>
+          <div class="gallery-item">
+            <!-- Ganti dengan foto mengajar 3 -->
+            <img src="foto-mengajar-3.jpg" alt="Interaksi dengan Murid"
+              onerror="this.src='https://placehold.co/400x300/FFF6EE/7FA5E3?text=Foto+Mengajar+3'" />
+          </div>
+        </div>
+      </div>
+      <p class="gallery-caption fade-in">
+        <i class="fa-solid fa-location-dot"></i> Teaching at SMA Negeri 3
+        Salatiga • Kelas X-6 • PPL Mandiri – Siklus 1 • Tahun Pelajaran
+        2026/2027
+      </p>
+    </div>
+  </section>
+
+  <!-- Artifacts -->
+  <section id="artifacts">
+    <div class="container">
+      <div class="section-title fade-in">
+        <h2>Teaching Artifacts</h2>
+        <p>
+          Dua artefak utama yang merepresentasikan proses perencanaan dan
+          pelaksanaan pembelajaran
+        </p>
+      </div>
+
+      <div class="grid grid-2">
+        <!-- Card RPP -->
+        <div class="artifact-card fade-in">
+          <div class="artifact-header">
+            <div class="icon-circle">
+              <i class="fa-solid fa-file-lines"></i>
+            </div>
+          </div>
+          <div class="artifact-content">
+            <div>
+              <h3>RPP Deep Learning</h3>
+              <p>
+                Rencana Pelaksanaan Pembelajaran (RPP) dengan pendekatan
+                <em>Deep Learning</em>, terintegrasi model
+                <em>Problem Based Learning (PBL)</em> berbasis
+                <em>Flipped Classroom</em> untuk materi Sifat-Sifat Bilangan
+                Berpangkat Positif, Pangkat Nol, dan Pangkat Negatif pada
+                praktik mengajar mandiri Kelas X-6.
+              </p>
+            </div>
+            <!-- Ganti nama file PDF sesuai yang kamu upload -->
+            <a href="RPP Deep Learning - Sifat-Sifat Bilangan Berpangkat.pdf" target="_blank" class="btn-outline">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              View RPP
+            </a>
+          </div>
+        </div>
+
+        <!-- Card Video -->
+        <div class="artifact-card fade-in">
+          <div class="artifact-header" style="padding: 0; min-height: 240px; position: relative">
+            <!-- Ganti dengan thumbnail video (bisa screenshot video) -->
+            <img src="thumbnail-video.jpg" alt="Thumbnail Video Mengajar" class="video-thumbnail"
+              onerror="this.src='https://placehold.co/800x450/F0F7FF/7FA5E3?text=Video+Praktik+Mengajar'" />
+            <div class="play-overlay" onclick="openVideo()">
+              <div class="play-btn">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+          </div>
+          <div class="artifact-content">
+            <div>
+              <h3>Video Praktik Mengajar Mandiri</h3>
+              <p>
+                Dokumentasi pelaksanaan pembelajaran di kelas X-6 berdasarkan
+                Rencana Pelaksanaan Pembelajaran (RPP) yang telah disusun,
+                yang menunjukkan kegiatan awal, inti, dan penutup selama proses
+                pembelajaran berlangsung.
+              </p>
+            </div>
+            <button onclick="openVideo()" class="btn-outline">
+              <i class="fa-solid fa-circle-play"></i>
+              Watch Video
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analisis Artifak -->
+      <div class="artifact-analysis fade-in">
+        <h3 class="artifact-analysis-title">
+          <i class="fa-solid fa-magnifying-glass-chart"></i>
+          C. Analisis Artifak
+        </h3>
+
+        <div class="analysis-grid">
+          <article class="analysis-item">
+            <h4>1. Konteks</h4>
+            <p>
+              RPP disusun untuk Kelas X-6 SMA Negeri 3 Salatiga pada semester
+              ganjil tahun pelajaran 2026/2027, dengan materi Sifat-Sifat
+              Bilangan Berpangkat Positif, Pangkat Nol, dan Pangkat Negatif
+              sebagai bagian dari Siklus 1 praktik mengajar mandiri. Kelas X-6
+              merupakan kelas yang baru pertama kali saya ajar, dengan latar
+              belakang sosial ekonomi murid yang beragam (pegawai, pedagang,
+              petani, dan wiraswasta) serta mayoritas bergaya belajar visual
+              berdasarkan hasil angket diagnostik. Kondisi ini menjadi dasar
+              pertimbangan dalam menentukan pendekatan dan strategi pembelajaran
+              yang digunakan.
+            </p>
+          </article>
+
+          <article class="analysis-item">
+            <h4>2. Tujuan</h4>
+            <p>
+              Artifak ini dirancang untuk mencapai empat tujuan pembelajaran,
+              yaitu menentukan hasil operasi bilangan berpangkat positif,
+              menjelaskan nilai bilangan berpangkat nol, mengubah bentuk
+              bilangan berpangkat negatif ke bentuk pecahan positif, dan
+              menerapkan sifat-sifat bilangan berpangkat dalam masalah
+              kontekstual. Selain aspek kognitif, RPP ini juga dirancang untuk
+              melatih kemandirian belajar murid melalui tahap pra-kelas berbasis
+              flipped classroom serta menumbuhkan kolaborasi dan bernalar kritis
+              melalui investigasi kelompok.
+            </p>
+          </article>
+
+          <article class="analysis-item">
+            <h4>3. Kelebihan</h4>
+            <ol>
+              <li><strong>Integrasi model pembelajaran ganda.</strong> RPP mengombinasikan sintaks Problem Based Learning (Barrows, 1986) dengan tahapan Flipped Classroom (Bergmann &amp; Sams, 2012), sehingga waktu tatap muka dapat dialokasikan sepenuhnya untuk kegiatan bermakna berupa investigasi kelompok, bukan untuk penjelasan konsep dasar yang bersifat prosedural.</li>
+              <li><strong>Kesesuaian dengan prinsip Deep Learning.</strong> Setiap fase pembelajaran secara eksplisit dipetakan ke dalam tiga prinsip Deep Learning (berkesadaran, bermakna, dan menggembirakan) serta tiga elemen pengalaman belajar (memahami, mengaplikasikan, dan merefleksi) sebagaimana diamanatkan dalam kerangka pembelajaran mendalam Kemendikbudristek, sehingga pembelajaran tidak berhenti pada penguasaan prosedur semata.</li>
+              <li><strong>Kontekstualisasi materi.</strong> Konsep pangkat nol dan pangkat negatif, yang secara konvensional bersifat abstrak, diperkenalkan melalui konteks pertumbuhan bakteri yang konkret dan dekat dengan pengetahuan umum murid, sejalan dengan prinsip Contextual Teaching and Learning (Johnson, 2002) yang menekankan keterkaitan materi dengan pengalaman nyata murid.</li>
+              <li><strong>Scaffolding yang terstruktur.</strong> Peran guru sebagai fasilitator yang memberikan pertanyaan pemandu tanpa langsung memberikan jawaban mencerminkan penerapan konsep scaffolding dalam Zone of Proximal Development (Vygotsky, 1978), yang mendorong murid membangun pemahaman secara mandiri melalui bimbingan bertahap.</li>
+              <li><strong>Kelengkapan instrumen penilaian.</strong> RPP dilengkapi rubrik penilaian pengetahuan berbasis skor per langkah penyelesaian serta rubrik dan lembar observasi sikap yang mengukur rasa ingin tahu, kerja sama, tanggung jawab, berpikir kritis, dan komunikasi, sehingga asesmen bersifat autentik dan menyeluruh.</li>
+            </ol>
+          </article>
+
+          <article class="analysis-item">
+            <h4>4. Kekurangan</h4>
+            <ol>
+              <li>Keberhasilan tahap pra-kelas (flipped classroom) sangat bergantung pada akses digital dan kedisiplinan murid dalam menonton video serta mengerjakan kuis secara mandiri di rumah, sehingga berpotensi menimbulkan kesenjangan kesiapan awal antarmurid saat pertemuan tatap muka dimulai.</li>
+              <li>Pengamatan sikap individual dalam kerja kelompok beranggotakan 4–5 murid berpotensi kurang mendalam apabila hanya dilakukan oleh satu orang guru yang berkeliling kelas, terutama untuk kelompok yang tidak terjangkau secara langsung pada satu waktu tertentu.</li>
+              <li>Alokasi waktu 2 JP untuk lima fase PBL sekaligus proses presentasi dan refleksi tergolong padat, sehingga terdapat risiko sebagian kelompok tidak memperoleh kesempatan presentasi secara merata pada setiap pertemuan.</li>
+            </ol>
+          </article>
+
+          <article class="analysis-item">
+            <h4>5. Keterkaitan dengan Mata Kuliah Terintegrasi</h4>
+            <p>
+              Analisis artifak ini menunjukkan keterkaitan langsung dengan kajian
+              pada mata kuliah Pembelajaran Mendalam dan Asesmen (PMA),
+              khususnya pada penerapan tiga prinsip <em>Deep Learning</em> dan
+              perancangan asesmen formatif berbasis rubrik. Penerapan
+              <em>scaffolding</em> dan pembelajaran kontekstual juga memperkuat
+              pemahaman teori belajar konstruktivistik yang telah dipelajari,
+              sehingga praktik mengajar mandiri ini menjadi wahana nyata untuk
+              mengintegrasikan teori dan praktik pembelajaran.
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About The Lesson -->
+  <section id="lesson" style="background: var(--bg-lavender)">
+    <div class="container">
+      <div class="section-title fade-in">
+        <h2>The Learning Behind The Lesson</h2>
+        <p>
+          Pendekatan, model, dan strategi pembelajaran yang diterapkan dalam
+          merancang pengalaman belajar bermakna
+        </p>
+      </div>
+
+      <div class="pill-container fade-in">
+        <div class="pill">
+          <strong>Kelas:</strong> X-6 • <strong>Semester:</strong> Ganjil •
+          <strong>Tahun Pelajaran:</strong> 2026/2027
+        </div>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card fade-in">
+          <div class="info-icon" style="margin-bottom: 1.25rem">
+            <i class="fa-solid fa-lightbulb"></i>
+          </div>
+          <h3>Context</h3>
+          <p style="color: var(--text-secondary); margin-top: 0.5rem">
+            Pembelajaran dilaksanakan di Kelas X-6 SMA Negeri 3 Salatiga pada
+            semester ganjil tahun pelajaran 2026/2027 dengan materi Sifat-Sifat
+            Bilangan Berpangkat Positif, Pangkat Nol, dan Pangkat Negatif.
+          </p>
+        </div>
+
+        <div class="card fade-in">
+          <div class="info-icon" style="margin-bottom: 1.25rem">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+          <h3>Approach</h3>
+          <p style="color: var(--text-secondary); margin-top: 0.5rem">
+            <strong>Deep Learning</strong> – Menekankan pembelajaran yang
+            berkesadaran, bermakna, dan menggembirakan, sehingga murid tidak
+            hanya menghafal rumus, tetapi mampu memahami dan menerapkannya
+            dalam kehidupan.
+          </p>
+        </div>
+
+        <div class="card fade-in">
+          <div class="info-icon" style="margin-bottom: 1.25rem">
+            <i class="fa-solid fa-puzzle-piece"></i>
+          </div>
+          <h3>Model & Strategy</h3>
+          <p style="color: var(--text-secondary); margin-top: 0.5rem">
+            <strong>Problem Based Learning (PBL)</strong> yang diintegrasikan
+            dengan <strong>Flipped Classroom</strong>. Melalui investigasi
+            kelompok dan kesiapan belajar di rumah, waktu tatap muka
+            difokuskan pada kegiatan belajar yang aktif dan bermakna.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reflection -->
+  <section id="reflection">
+    <div class="container">
+      <div class="section-title fade-in">
+        <h2>Refleksi</h2>
+        <p>
+          Refleksi terhadap model guru yang dituju, filosofi mengajar, dan
+          pengalaman selama praktik mengajar mandiri Siklus 1
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <h4><i class="fa-solid fa-person-chalkboard"></i> 1. Model Guru yang Dituju</h4>
+            <p>
+              Melalui praktik mengajar mandiri Siklus 1 ini, saya berupaya
+              menjadi guru yang berperan sebagai fasilitator pembelajaran,
+              bukan sekadar penyampai informasi. Model guru yang saya tuju
+              adalah sosok yang mampu merancang pengalaman belajar bermakna,
+              memberikan <em>scaffolding</em> yang tepat, dan menumbuhkan
+              kemandirian serta rasa ingin tahu murid terhadap matematika.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <h4><i class="fa-solid fa-lightbulb"></i> 2. Filosofi Mengajar</h4>
+            <p>
+              Filosofi mengajar yang saya pegang berangkat dari keyakinan bahwa
+              matematika dapat dipahami oleh siapa pun apabila disajikan melalui
+              konteks yang relevan dengan kehidupan murid. Motivasi utama saya
+              adalah mengubah cara pandang murid terhadap matematika, dari mata
+              pelajaran yang menakutkan menjadi pengalaman belajar yang bermakna
+              dan menggembirakan, sebagaimana tercermin dalam pemilihan konteks
+              pertumbuhan bakteri untuk memperkenalkan konsep pangkat nol dan
+              pangkat negatif pada RPP ini.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <h4><i class="fa-solid fa-magnifying-glass"></i> 3. Refleksi Akhir</h4>
+            <p>
+              <strong>Kekuatan.</strong> Pelaksanaan RPP ini menunjukkan bahwa
+              integrasi <em>Problem Based Learning</em> dan
+              <em>Flipped Classroom</em> efektif meningkatkan keterlibatan aktif
+              murid, karena waktu tatap muka dapat difokuskan pada investigasi
+              dan diskusi kelompok, bukan pada penjelasan konsep dasar.
+            </p>
+            <p style="margin-top: 1rem">
+              <strong>Kelemahan.</strong> Ketergantungan pada kesiapan mandiri
+              murid dalam tahap pra-kelas serta keterbatasan pengamatan sikap
+              individual dalam kelompok besar menjadi tantangan yang perlu
+              diantisipasi pada pelaksanaan berikutnya.
+            </p>
+            <p style="margin-top: 1rem">
+              <strong>Rencana Tindak Lanjut.</strong> Pada siklus pembelajaran
+              selanjutnya, saya berencana menyediakan alternatif akses materi
+              pra-kelas bagi murid dengan keterbatasan akses digital, serta
+              melibatkan perwakilan kelompok sebagai observer sejawat untuk
+              memperkuat validitas penilaian sikap. Saya juga akan terus
+              mengembangkan variasi model pembelajaran yang disesuaikan dengan
+              kebutuhan murid, sejalan dengan prinsip bahwa strategi
+              pembelajaran yang efektif tidak boleh terpaku pada satu model
+              tertentu.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaching Philosophy -->
+  <section id="philosophy" class="philosophy">
+    <div class="container fade-in">
+      <div class="section-title">
+        <h2>My Teaching Philosophy</h2>
+      </div>
+      <blockquote class="quote">
+        <span>“</span>Matematika dapat dipahami oleh siapa pun apabila
+        disajikan melalui konteks yang relevan dengan kehidupan murid.<span>”</span>
+      </blockquote>
+      <p class="philosophy-text">
+        <strong>My goal as a teacher</strong> – Mengubah cara pandang murid
+        terhadap matematika, dari mata pelajaran yang dianggap sulit dan
+        menakutkan menjadi pengalaman belajar yang bermakna, aktif, dan
+        menggembirakan.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand fade-in">
+        <h3>Wardatul Jannah, S.Mat.</h3>
+        <p>
+          Mahasiswa PPG Prajabatan Matematika <br />
+          Universitas Kristen Satya Wacana (UKSW) Salatiga <br />
+          PPL Mandiri • Siklus 1 • Tahun Pelajaran 2026/2027
+        </p>
+      </div>
+      <div class="fade-in">
+        <h4 style="color: white; margin-bottom: 1rem">Get in Touch</h4>
+        <a href="mailto:wardatuljannahputri31@gmail.com" class="contact-item">
+          <div class="contact-icon">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <div>
+            <small style="color: #cbd5e0">Email</small>
+            <p>wardatuljannahputri31@gmail.com</p>
+          </div>
+        </a>
+        <a href="https://wa.me/6285345166358" target="_blank" class="contact-item">
+          <div class="contact-icon">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <div>
+            <small style="color: #cbd5e0">WhatsApp</small>
+            <p>0853 4516 6358</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 E-Portofolio Praktik Pengalaman Lapangan (PPL) Mandiri – Siklus 1
+      | Wardatul Jannah, S.Mat.
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <a href="#home" class="back-to-top" id="backToTop">
+    <i class="fa-solid fa-arrow-up"></i>
+  </a>
+
+  <!-- Video Modal -->
+  <div class="modal" id="videoModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeVideo()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <!-- Ganti dengan file video mengajar kamu (.mp4) -->
+      <video id="videoPlayer" controls>
+        <source src="video-praktik-mengajar.mp4" type="video/mp4" />
+        Browser Anda tidak mendukung pemutaran video.
+      </video>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Fade In on Scroll
+    const fadeElements = document.querySelectorAll(".fade-in");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    fadeElements.forEach((el) => observer.observe(el));
+
+    // Mobile Navbar
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+    const navItems = document.querySelectorAll(".nav-link");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      const icon = hamburger.querySelector("i");
+      icon.classList.toggle("fa-bars");
+      icon.classList.toggle("fa-xmark");
+    });
+
+    navItems.forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        const icon = hamburger.querySelector("i");
+        icon.classList.add("fa-bars");
+        icon.classList.remove("fa-xmark");
+      });
+    });
+
+    // Active Nav Link on Scroll
+    const sections = document.querySelectorAll("section");
+    const navLinksAll = document.querySelectorAll(".nav-link");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop - 100) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinksAll.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+
+      // Back to Top
+      const backToTop = document.getElementById("backToTop");
+      if (window.scrollY > 500) {
+        backToTop.classList.add("active");
+      } else {
+        backToTop.classList.remove("active");
+      }
+    });
+
+    // Video Modal
+    const videoModal = document.getElementById("videoModal");
+    const videoPlayer = document.getElementById("videoPlayer");
+
+    function openVideo() {
+      videoModal.classList.add("active");
+      videoPlayer.play();
+    }
+
+    function closeVideo() {
+      videoModal.classList.remove("active");
+      videoPlayer.pause();
+      videoPlayer.currentTime = 0;
+    }
+
+    videoModal.addEventListener("click", (e) => {
+      if (e.target === videoModal) {
+        closeVideo();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeVideo();
+      }
+    });
+  </script>
+</body>
+
+</html>
