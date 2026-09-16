@@ -1002,7 +1002,7 @@
         <li><a href="#philosophy" class="nav-link">Philosophy</a></li>
         <li class="nav-badge">PPL Mandiri – Siklus 1</li>
       </ul>
-      <button class="hamburger" id="hamburger">
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
         <i class="fa-solid fa-bars"></i>
       </button>
     </nav>
@@ -1180,7 +1180,7 @@
               </p>
             </div>
             <!-- Ganti nama file PDF sesuai yang kamu upload -->
-            <a href="https://drive.google.com/file/d/17nhyLGkiT3AXfZ3WXWksPldRoGVTAJIC/view?usp=drivesdk" target="_blank" class="btn-outline">
+            <a href="https://drive.google.com/file/d/17nhyLGkiT3AXfZ3WXWksPldRoGVTAJIC/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="btn-outline">
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
               View RPP
             </a>
@@ -1193,11 +1193,12 @@
             <!-- Ganti dengan thumbnail video (bisa screenshot video) -->
             <img src="thumbnail-video.jpg" alt="Thumbnail Video Mengajar" class="video-thumbnail"
               onerror="this.src='https://placehold.co/800x450/F0F7FF/7FA5E3?text=Video+Praktik+Mengajar'" />
-            <div class="play-overlay" onclick="openVideo()">
+            <a href="https://youtu.be/LyOhLKoJb6I?si=v8A0GeE1vw9TiS8S" target="_blank" rel="noopener noreferrer"
+              class="play-overlay" aria-label="Watch Video Praktik Mengajar">
               <div class="play-btn">
                 <i class="fa-solid fa-play"></i>
               </div>
-            </div>
+            </a>
           </div>
           <div class="artifact-content">
             <div>
@@ -1209,7 +1210,7 @@
                 pembelajaran berlangsung.
               </p>
             </div>
-             <a href="https://youtu.be/LyOhLKoJb6I?si=PMkoxdp-cRmPQgEi" target="_blank" rel="noopener noreferrer" class="btn-outline">
+             <a href="https://youtu.be/LyOhLKoJb6I?si=v8A0GeE1vw9TiS8S" target="_blank" rel="noopener noreferrer" class="btn-outline">
               <i class="fa-solid fa-circle-play"></i>
               Watch Video
             </a>
@@ -1473,7 +1474,7 @@
             <p>wardatuljannahputri31@gmail.com</p>
           </div>
         </a>
-        <a href="https://wa.me/6285345166358" target="_blank" class="contact-item">
+        <a href="https://wa.me/6285345166358" target="_blank" rel="noopener noreferrer" class="contact-item">
           <div class="contact-icon">
             <i class="fa-brands fa-whatsapp"></i>
           </div>
@@ -1495,22 +1496,9 @@
     <i class="fa-solid fa-arrow-up"></i>
   </a>
 
-  <!-- Video Modal -->
-  <div class="modal" id="videoModal">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeVideo()">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-      <!-- Ganti dengan file video mengajar kamu (.mp4) -->
-      <video id="videoPlayer" controls>
-        <source src="video-praktik-mengajar.mp4" type="video/mp4" />
-        Browser Anda tidak mendukung pemutaran video.
-      </video>
-    </div>
-  </div>
-
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
+  <script src="script.js"></script>
+  <script type="text/plain">
     // Fade In on Scroll
     const fadeElements = document.querySelectorAll(".fade-in");
     const observer = new IntersectionObserver(
@@ -1577,32 +1565,7 @@
       }
     });
 
-    // Video Modal
-    const videoModal = document.getElementById("videoModal");
-    const videoPlayer = document.getElementById("videoPlayer");
 
-    function openVideo() {
-      videoModal.classList.add("active");
-      videoPlayer.play();
-    }
-
-    function closeVideo() {
-      videoModal.classList.remove("active");
-      videoPlayer.pause();
-      videoPlayer.currentTime = 0;
-    }
-
-    videoModal.addEventListener("click", (e) => {
-      if (e.target === videoModal) {
-        closeVideo();
-      }
-    });
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        closeVideo();
-      }
-    });
   </script>
 </body>
 
